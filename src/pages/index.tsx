@@ -4,7 +4,7 @@ import { useState } from "react";
 
 type Message = {
   message: string,
-  name: sting
+  name: string
 }
 
 const Messages = () => {
