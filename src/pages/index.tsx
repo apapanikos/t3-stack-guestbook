@@ -2,6 +2,11 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import { useState } from "react";
 
+type Message = {
+  message: string,
+  name: sting
+}
+
 const Messages = () => {
   const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
 
@@ -9,7 +14,7 @@ const Messages = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      {messages?.map((msg: string, index: number) => {
+      {messages?.map((msg: Message, index: number) => {
         return (
           <div key={index}>
             <p>{msg.message}</p>
